@@ -18,6 +18,8 @@
 ;(set-default-font "Courier 10 Pitch-11")
 
 ;;--------------------BASIC SETTINGS--------------------
+;; Save all backup file in this directory.
+(setq backup-directory-alist (quote ((".*" . "~/.emacs_backups/"))))
 
 ;;indent
 (setq-default indent-tabs-mode nil)
@@ -165,4 +167,8 @@ If ARG is non-numeric, copy line from beginning of the current line."
 (semantic-load-enable-code-helpers)
 (global-set-key [(control tab)] 'semantic-ia-complete-symbol-menu)
 
-
+;;---------------------------Settings for Octave------------------------
+(setq auto-mode-alist
+      (cons
+       '("\\.m$" . octave-mode)
+       auto-mode-alist))
