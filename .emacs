@@ -172,3 +172,4 @@ If ARG is non-numeric, copy line from beginning of the current line."
       (cons
        '("\\.m$" . octave-mode)
        auto-mode-alist))
+(setq octave-block-offset 4)
