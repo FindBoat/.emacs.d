@@ -59,7 +59,7 @@
 (setq show-paren-style 'parentheses)
 
 ;;show row#
-(global-linum-mode t)
+;;(global-linum-mode t)
 ;;change title format
 (setq frame-title-format "Hang@%b")
 
