@@ -18,6 +18,27 @@
 ;(set-default-font "Courier 10 Pitch-11")
 
 ;;--------------------BASIC SETTINGS--------------------
+;; Max 80 columns per line.
+(add-hook 'write-file-hooks 'delete-trailing-whitespace)
+
+;; display only tails of lines longer than 80 columns, tabs and
+;; trailing whitespaces
+(setq whitespace-line-column 80
+      whitespace-style '(tabs trailing lines-tail))
+
+;; face for long lines' tails
+(set-face-attribute 'whitespace-line nil
+                    :background "red1"
+                    :foreground "yellow"
+                    :weight 'bold)
+
+;; face for Tabs
+(set-face-attribute 'whitespace-tab nil
+                    :background "red1"
+                    :foreground "yellow"
+                    :weight 'bold)
+
+
 ;; Save all backup file in this directory.
 (setq backup-directory-alist (quote ((".*" . "~/.emacs_backups/"))))
 
@@ -155,11 +176,11 @@ If ARG is non-numeric, copy line from beginning of the current line."
 ;;c mode default
 
 (add-hook 'c-mode-common-hook ( lambda()
-            ( c-set-style "k&r" ) 
+            ( c-set-style "bsd" ) 
             (setq c-basic-offset 4) ) )
 ;;c++ mode default
 (add-hook 'c++-mode-common-hook ( lambda() 
-              ( c-set-style "k&r" ) 
+              ( c-set-style "bsd" ) 
               (setq c-basic-offset 4) ) )
 
 ;;auto complete
