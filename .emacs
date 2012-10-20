@@ -19,25 +19,18 @@
 
 ;;--------------------BASIC SETTINGS--------------------
 ;; Max 80 columns per line.
-(add-hook 'write-file-hooks 'delete-trailing-whitespace)
-
-;; display only tails of lines longer than 80 columns, tabs and
-;; trailing whitespaces
-(setq whitespace-line-column 80
-      whitespace-style '(tabs trailing lines-tail))
-
-;; face for long lines' tails
-(set-face-attribute 'whitespace-line nil
-                    :background "red1"
-                    :foreground "yellow"
-                    :weight 'bold)
-
-;; face for Tabs
-(set-face-attribute 'whitespace-tab nil
-                    :background "red1"
-                    :foreground "yellow"
-                    :weight 'bold)
-
+(custom-set-faces
+   '(my-tab-face            ((((class color)) (:background "green"))) t)
+   '(my-trailing-space-face ((((class color)) (:background "green"))) t)
+   '(my-long-line-face ((((class color)) (:background "red"))) t))
+  (add-hook 'font-lock-mode-hook
+            (function
+             (lambda ()
+               (setq font-lock-keywords
+                     (append font-lock-keywords
+                             '(("\t+" (0 'my-tab-face t))
+                               ("^.\\{81,\\}$" (0 'my-long-line-face t))
+                               ("[ \t]+$"      (0 'my-trailing-space-face t))))))))
 
 ;; Save all backup file in this directory.
 (setq backup-directory-alist (quote ((".*" . "~/.emacs_backups/"))))
@@ -176,11 +169,11 @@ If ARG is non-numeric, copy line from beginning of the current line."
 ;;c mode default
 
 (add-hook 'c-mode-common-hook ( lambda()
-            ( c-set-style "bsd" ) 
+            ( c-set-style "bsd" )
             (setq c-basic-offset 4) ) )
 ;;c++ mode default
-(add-hook 'c++-mode-common-hook ( lambda() 
-              ( c-set-style "bsd" ) 
+(add-hook 'c++-mode-common-hook ( lambda()
+              ( c-set-style "bsd" )
               (setq c-basic-offset 4) ) )
 
 ;;auto complete
