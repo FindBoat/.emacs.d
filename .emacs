@@ -137,11 +137,11 @@ If ARG is non-numeric, copy line from beginning of the current line."
 (setq template-default-directories (cons "~/.emacs.d/templates/" template-default-directories))
 
 ;;--------------------SETTINGS FOR JDEE--------------------
-(add-to-list 'load-path "~/.emacs.d/cedet-1.0/eieio")
-(add-to-list 'load-path "~/.emacs.d/cedet-1.0/semantic")
+(add-to-list 'load-path "~/.emacs.d/cedet-1.1/eieio")
+(add-to-list 'load-path "~/.emacs.d/cedet-1.1/semantic")
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/jdee-2.4.0.1/lisp"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/cedet-1.0/common"))
-(load-file (expand-file-name "~/.emacs.d/cedet-1.0/common/cedet.el"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/cedet-1.1/common"))
+(load-file (expand-file-name "~/.emacs.d/cedet-1.1/common/cedet.el"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elib-1.0"))
 
 ;;Not loading JDE until open a java file
