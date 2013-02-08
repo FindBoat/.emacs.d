@@ -8,21 +8,27 @@
 ;;(set-face-background 'default "#772953")
 (set-face-background 'default "#000000")
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(font-lock-function-name-face ((((class color) (min-colors 88) (background dark)) (:foreground "Red" :weight bold))))
  '(font-lock-keyword-face ((((class color) (min-colors 88) (background dark)) (:foreground "#3399ff"))))
  '(font-lock-type-face ((((class color) (min-colors 88) (background dark)) (:foreground "#ccff00"))))
- '(font-lock-variable-name-face ((((class color) (min-colors 88) (background dark)) (:foreground "white")))))
+ '(font-lock-variable-name-face ((((class color) (min-colors 88) (background dark)) (:foreground "white"))))
+ '(my-long-line-face ((((class color)) (:background "red"))) t)
+ '(my-tab-face ((((class color)) (:background "green"))) t)
+ '(my-trailing-space-face ((((class color)) (:background "green"))) t))
 
 ; default_font
 (set-default-font "Comic Sans MS-11")
 ;(set-default-font "Courier 10 Pitch-11")
 
+(setq tramp-default-method "ssh")
+
 ;;--------------------BASIC SETTINGS--------------------
 ;; Max 80 columns per line.
-(custom-set-faces
-   '(my-tab-face            ((((class color)) (:background "green"))) t)
-   '(my-trailing-space-face ((((class color)) (:background "green"))) t)
-   '(my-long-line-face ((((class color)) (:background "red"))) t))
+
   (add-hook 'font-lock-mode-hook
             (function
              (lambda ()
@@ -61,9 +67,9 @@
 (fullscreen)
 
 ;;settings
-(tool-bar-mode -1)
+;;(tool-bar-mode nil)
 ;;(menu-bar-mode -1)
-(scroll-bar-mode nil)
+;;(set-scroll-bar-mode nil)
 
 ;;close startup message
 (setq inhibit-startup-message t)
@@ -99,6 +105,21 @@
           (back-to-indentation)
           (kill-ring-save (point) (line-end-position)))
       (kill-ring-save (line-beginning-position) (line-end-position)))))
+(setq standard-indent 4)
+(setq tab-width 4)
+
+;;full screen
+(defun fullscreen ()
+      (interactive)
+	        (set-frame-parameter nil 'fullscreen
+			                           (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
+
+;window maximized
+;; (defun my-maximized ()
+;;  (interactive)
+;;  (x-send-client-message
+;;   nil 0 nil "_NET_WM_STATE" 32
+;;   '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
 
 ;;;###autoload
 (defun huangq-kill-ring-save (&optional n)
@@ -158,12 +179,14 @@ If ARG is non-numeric, copy line from beginning of the current line."
 ;;auto fill using menu
 ;;set sourcepath
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(jde-complete-function (quote jde-complete-menu))
- '(jde-sourcepath (quote ("~/Documents/Java/TopCoder"))))
+ '(jde-sourcepath (quote ("~/Documents/Java/TopCoder")))
+ '(scroll-bar-mode nil)
+ '(tool-bar-mode nil))
 
 ;;--------------------SETTINGS FOR C++--------------------
 ;;c mode default
