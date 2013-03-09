@@ -43,8 +43,8 @@
 
 ;;indent
 (setq-default indent-tabs-mode nil)
-(setq standard-indent 4)
-(setq tab-width 4)
+(setq standard-indent 2)
+(setq tab-width 2)
 
 ;;full screen
 (defun fullscreen ()
@@ -105,8 +105,6 @@
           (back-to-indentation)
           (kill-ring-save (point) (line-end-position)))
       (kill-ring-save (line-beginning-position) (line-end-position)))))
-(setq standard-indent 4)
-(setq tab-width 4)
 
 ;;full screen
 (defun fullscreen ()
@@ -193,11 +191,11 @@ If ARG is non-numeric, copy line from beginning of the current line."
 
 (add-hook 'c-mode-common-hook ( lambda()
             ( c-set-style "bsd" )
-            (setq c-basic-offset 4) ) )
+            (setq c-basic-offset 2) ) )
 ;;c++ mode default
 (add-hook 'c++-mode-common-hook ( lambda()
               ( c-set-style "bsd" )
-              (setq c-basic-offset 4) ) )
+              (setq c-basic-offset 2) ) )
 
 ;;auto complete
 (require 'cedet)
