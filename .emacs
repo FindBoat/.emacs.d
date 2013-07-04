@@ -6,7 +6,10 @@
 ;(color-theme-dark-laptop)
 (set-face-foreground 'default "white")
 ;;(set-face-background 'default "#772953")
-(set-face-background 'default "#000000")
+;;(set-face-background 'default "#000000")
+(set-face-background 'default "#3A3A3A")
+;;(set-face-background 'default "#272822")
+;;(set-face-background 'default "#32332B")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -21,12 +24,21 @@
  '(my-trailing-space-face ((((class color)) (:background "green"))) t))
 
 ; default_font
-(set-default-font "Comic Sans MS-11")
+;;(set-face-attribute 'default nil :family "Anonymous Pro" :height 115)
+;;(set-default-font "DejaVu Sans Mono-10.5")
+;;(set-default-font "monospace-10.8")
+(set-default-font "Anonymous Pro-11:bold")
 ;(set-default-font "Courier 10 Pitch-11")
 
 (setq tramp-default-method "ssh")
 
 ;;--------------------BASIC SETTINGS--------------------
+;; Yes or no question.
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(global-set-key (kbd "C-x j") 'windmove-left)          ; move to left windnow
+(global-set-key (kbd "C-x l") 'windmove-right)        ; move to right window
+
 ;; Max 80 columns per line.
 
   (add-hook 'font-lock-mode-hook
@@ -64,11 +76,11 @@
 )
 ;maxmize when start
 ;(my-maximized)
-(fullscreen)
+;;(fullscreen)
 
 ;;settings
 ;;(tool-bar-mode nil)
-;;(menu-bar-mode -1)
+(menu-bar-mode -1)
 ;;(set-scroll-bar-mode nil)
 
 ;;close startup message
@@ -156,6 +168,7 @@ If ARG is non-numeric, copy line from beginning of the current line."
 (setq template-default-directories (cons "~/.emacs.d/templates/" template-default-directories))
 
 ;;--------------------SETTINGS FOR JDEE--------------------
+;;(add-to-list 'load-path "~/.emacs.d/google-c-style.el")
 (add-to-list 'load-path "~/.emacs.d/cedet-1.1/eieio")
 (add-to-list 'load-path "~/.emacs.d/cedet-1.1/semantic")
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/jdee-2.4.0.1/lisp"))
@@ -188,14 +201,34 @@ If ARG is non-numeric, copy line from beginning of the current line."
 
 ;;--------------------SETTINGS FOR C++--------------------
 ;;c mode default
+(add-to-list 'load-path
+"~/.emacs.d/")
+(require 'google-c-style)
+;; (add-hook 'c-mode-common-hook ( lambda()
+;;             ( c-set-style "bsd" )
+;;             (setq c-basic-offset 2)
+;;             (c-set-offset 'access-label '--)
+;;             (c-set-offset 'topmost-intro '--)
+;;             (c-set-offset 'arglist-intro '+)
+;;             (c-set-offset 'arglist-close 0)))
+;; (add-hook 'c-mode-common-hook 'google-set-c-style)
+;; (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 
-(add-hook 'c-mode-common-hook ( lambda()
-            ( c-set-style "bsd" )
-            (setq c-basic-offset 2) ) )
-;;c++ mode default
-(add-hook 'c++-mode-common-hook ( lambda()
-              ( c-set-style "bsd" )
-              (setq c-basic-offset 2) ) )
+;; ;;c++ mode default
+;; (add-hook 'c++-mode-common-hook ( lambda()
+;;               ( c-set-style "bsd" )
+;;               (setq c-basic-offset 2)
+;;               (c-set-style "google"))
+;;               ))
+;; (add-hook 'c++-mode-common-hook 'google-set-c-style)
+;; add-hook 'c++-mode-common-hook 'google-make-newline-indent)
+
+(defun my-c-mode-common-hook ()
+  (c-set-style "google")
+  (setq c-basic-offset 2))
+;; google sytle is defined in above function
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
 
 ;;auto complete
 (require 'cedet)
@@ -208,3 +241,8 @@ If ARG is non-numeric, copy line from beginning of the current line."
        '("\\.m$" . octave-mode)
        auto-mode-alist))
 (setq octave-block-offset 4)
+
+
+;;(require 'google)
+;;(require 'google-imports)
+
