@@ -44,7 +44,7 @@
      (mode-line-mousable ((t (:foreground "#BCBCBC" :background "#000000"))))
      (mode-line-mousable-minor-mode ((t (:foreground "#BCBCBC" :background "#000000"))))
      (font-lock-builtin-face ((t (:foreground "#A6E22E"))))
-     (font-lock-comment-face ((t (:foreground "#465457" :slant italic))))
+     (font-lock-comment-face ((t (:foreground "#809A94" :slant italic))))
      (font-lock-comment-delimiter-face ((t (:foreground "#465457" :slant italic))))
      (font-lock-constant-face ((t (:foreground "#AE81FF"))))
      (font-lock-doc-face ((t (:foreground "#E6DB74" :slant italic))))
