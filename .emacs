@@ -1,24 +1,11 @@
 ;;--------------------COLOR THEME--------------------
 (add-to-list 'load-path
 "~/.emacs.d/color-theme-6.6.0")
-(require 'color-theme)
-(color-theme-initialize)
-;(color-theme-dark-laptop)
-(set-face-foreground 'default "white")
-;;(set-face-background 'default "#772953")
-;;(set-face-background 'default "#000000")
-(set-face-background 'default "#3A3A3A")
-;;(set-face-background 'default "#272822")
-;;(set-face-background 'default "#32332B")
+
+(load-file "~/.emacs.d/color-theme-molokai.el")
+(color-theme-molokai)
+
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(font-lock-function-name-face ((((class color) (min-colors 88) (background dark)) (:foreground "Red" :weight bold))))
- '(font-lock-keyword-face ((((class color) (min-colors 88) (background dark)) (:foreground "#3399ff"))))
- '(font-lock-type-face ((((class color) (min-colors 88) (background dark)) (:foreground "#ccff00"))))
- '(font-lock-variable-name-face ((((class color) (min-colors 88) (background dark)) (:foreground "white"))))
  '(my-long-line-face ((((class color)) (:background "red"))) t)
  '(my-tab-face ((((class color)) (:background "green"))) t)
  '(my-trailing-space-face ((((class color)) (:background "green"))) t))
@@ -27,8 +14,10 @@
 ;;(set-face-attribute 'default nil :family "Anonymous Pro" :height 115)
 ;;(set-default-font "DejaVu Sans Mono-10.5")
 ;;(set-default-font "monospace-10.8")
-(set-default-font "Anonymous Pro-11:bold")
+
 ;(set-default-font "Courier 10 Pitch-11")
+
+(set-default-font "Anonymous Pro-11:bold")
 
 (setq tramp-default-method "ssh")
 
