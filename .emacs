@@ -1,14 +1,34 @@
 ;;--------------------COLOR THEME--------------------
-(add-to-list 'load-path
-"~/.emacs.d/color-theme-6.6.0")
+;; (add-to-list 'load-path
+;; "~/.emacs.d/color-theme-6.6.0")
+
+(add-to-list 'load-path "~/.emacs.d/cedet-1.1/eieio")
+(add-to-list 'load-path "~/.emacs.d/cedet-1.1/semantic")
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/jdee-2.4.0.1/lisp"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/cedet-1.1/common"))
+(load-file (expand-file-name "~/.emacs.d/cedet-1.1/common/cedet.el"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elib-1.0"))
+
+
+(require 'package)
+(add-to-list 'package-archives
+                 '("marmalade" .
+                         "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
+;; (progn
+;;     (package-refresh-contents)
+;;     (package-install 'monokai-theme))
+
+;;(load-theme 'monokai t)
 
 (load-file "~/.emacs.d/color-theme-molokai.el")
 (color-theme-molokai)
 
-(custom-set-faces
- '(my-long-line-face ((((class color)) (:background "red"))) t)
- '(my-tab-face ((((class color)) (:background "green"))) t)
- '(my-trailing-space-face ((((class color)) (:background "green"))) t))
+;; (custom-set-faces
+;;  '(my-long-line-face ((((class color)) (:background "red"))) t)
+;;  '(my-tab-face ((((class color)) (:background "green"))) t)
+;;  '(my-trailing-space-face ((((class color)) (:background "green"))) t))
 
 ; default_font
 ;;(set-face-attribute 'default nil :family "Anonymous Pro" :height 115)
@@ -17,7 +37,7 @@
 
 ;(set-default-font "Courier 10 Pitch-11")
 
-(set-default-font "Anonymous Pro-11:bold")
+;;(set-default-font "Anonymous Pro-11:bold")
 
 (setq tramp-default-method "ssh")
 
@@ -157,13 +177,6 @@ If ARG is non-numeric, copy line from beginning of the current line."
 (setq template-default-directories (cons "~/.emacs.d/templates/" template-default-directories))
 
 ;;--------------------SETTINGS FOR JDEE--------------------
-;;(add-to-list 'load-path "~/.emacs.d/google-c-style.el")
-(add-to-list 'load-path "~/.emacs.d/cedet-1.1/eieio")
-(add-to-list 'load-path "~/.emacs.d/cedet-1.1/semantic")
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/jdee-2.4.0.1/lisp"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/cedet-1.1/common"))
-(load-file (expand-file-name "~/.emacs.d/cedet-1.1/common/cedet.el"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elib-1.0"))
 
 ;;Not loading JDE until open a java file
 (setq defer-loading-jde t)
