@@ -2,8 +2,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; For emacs23
-(add-to-list 'load-path
-"~/.emacs.d/color-theme-6.6.0")
+(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
+(require 'color-theme)
 
 (load-file "~/.emacs.d/monokai-theme.el")
 ;;(custom-set-faces '(default ((t (:background "#1A1A1A")))))
@@ -38,10 +38,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; Format checking.
 (custom-set-faces
- '(my-tab-face ((((class color)) (:background "green"))) t)
- '(my-trailing-space-face ((((class color)) (:background "green"))) t))
-;; '(my-long-line-face ((((class color)) (:background "red"))) t))
+ '(my-tab-face ((((class color)) (:background "green"))) t))
+;; '(my-trailing-space-face ((((class color)) (:background "green"))) t))
+;;'(my-long-line-face ((((class color)) (:background "red"))) t))
 
 ; default_font
 ;;(set-face-attribute 'default nil :family "Anonymous Pro" :height 115)
@@ -49,7 +50,8 @@
 
 ;(set-default-font "Courier 10 Pitch-11")
 
-(set-default-font "Anonymous Pro-11:bold")
+;;(set-default-font "Anonymous Pro-11:bold")
+(set-default-font "Anonymous Pro-10")
 
 (setq tramp-default-method "ssh")
 
@@ -61,7 +63,6 @@
 (global-set-key (kbd "C-x l") 'windmove-right)        ; move to right window
 
 ;; Max 80 columns per line.
-
   (add-hook 'font-lock-mode-hook
             (function
              (lambda ()
