@@ -3,6 +3,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; For emacs23
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (require 'color-theme)
 
 (load-file "~/.emacs.d/monokai-theme.el")
