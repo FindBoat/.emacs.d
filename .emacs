@@ -269,6 +269,18 @@ If ARG is non-numeric, copy line from beginning of the current line."
 (require 'coffee-mode)
 (custom-set-variables '(coffee-tab-width 2))
 
+;;--------------------SETTINGS FOR Jade & Stylus--------------------
+(require 'sws-mode)
+(require 'jade-mode)    
+(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
+(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+
+;;--------------------SETTINGS FOR Less & CSS--------------------
+(require 'less-css-mode)
+(add-hook 'css-mode-hook 
+      '(lambda() 
+        (setq css-indent-offset 2) 
+        (setq indent-tabs-mode nil))) 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Comment things below if working locally;;;;;;;;;;;;;;;;;;;;;;;
