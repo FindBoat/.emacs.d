@@ -74,14 +74,14 @@
 (global-set-key (kbd "C-x l") 'windmove-right)        ; move to right window
 
 ;; Max 80 columns per line.
-;; (add-hook 'font-lock-mode-hook
-;;            (function
-;;             (lambda ()
-;;               (setq font-lock-keywords
-;;                     (append font-lock-keywords
-;;                             '(("\t+" (0 'my-tab-face t))
-;;                               ("^.\\{81,\\}$" (0 'my-long-line-face t))
-;; ("[ \t]+$"      (0 'my-tratrailing-space-face t))))))))
+(add-hook 'font-lock-mode-hook
+           (function
+            (lambda ()
+              (setq font-lock-keywords
+                    (append font-lock-keywords
+                            '(("\t+" (0 'my-tab-face t))
+                              ("^.\\{81,\\}$" (0 'my-long-line-face t))
+("[ \t]+$"      (0 'my-tratrailing-space-face t))))))))
 
 ;; save all backup file in this directory.
 (setq backup-directory-alist (quote ((".*" . "~/.emacs_backups/"))))
@@ -263,6 +263,11 @@ If ARG is non-numeric, copy line from beginning of the current line."
 (require 'cedet)
 (semantic-load-enable-code-helpers)
 (global-set-key [(control tab)] 'semantic-ia-complete-symbol-menu)
+
+
+;;--------------------SETTINGS FOR CoffeeScript--------------------
+(require 'coffee-mode)
+(custom-set-variables '(coffee-tab-width 2))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
