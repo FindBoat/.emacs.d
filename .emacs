@@ -21,6 +21,7 @@
 (load-file (expand-file-name "~/.emacs.d/cedet-1.1/common/cedet.el"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elib-1.0"))
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; For emacs24
 
@@ -29,6 +30,14 @@
                  '("marmalade" .
                          "http://marmalade-repo.org/packages/"))
 (package-initialize)
+
+
+;;--------------------Projectile--------------------
+(projectile-global-mode)
+(setq projectile-completion-system 'grizzl)
+(define-key projectile-mode-map (kbd "C-x f") 'projectile-find-file)
+
+
 
 ;; (load-file "~/.emacs.d/color-theme-molokai.el")
 ;; (color-theme-molokai)
@@ -42,6 +51,7 @@
 ;; (load-theme 'monokai t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 ;; Format checking.
 (custom-set-faces
@@ -238,6 +248,7 @@ If ARG is non-numeric, copy line from beginning of the current line."
 ;;c mode default
 (add-to-list 'load-path
 "~/.emacs.d/")
+
 (require 'google-c-style)
 
 ;; (add-hook 'c-mode-common-hook ( lambda()
@@ -280,7 +291,9 @@ If ARG is non-numeric, copy line from beginning of the current line."
 (add-hook 'css-mode-hook 
       '(lambda() 
         (setq css-indent-offset 2) 
-        (setq indent-tabs-mode nil))) 
+        (setq indent-tabs-mode nil)))
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Comment things below if working locally;;;;;;;;;;;;;;;;;;;;;;;
@@ -296,3 +309,4 @@ If ARG is non-numeric, copy line from beginning of the current line."
 
 
 ;; (require 'google)
+

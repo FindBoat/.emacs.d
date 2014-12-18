@@ -1,10 +1,10 @@
-;;; monokai-theme.el --- REQUIRES EMACS 24: Monokai Color Theme for Emacs.
+;;; monokai-theme.el --- DEPRECATED: Monokai Color Theme for Emacs.
 
 ;; Copyright (C) 2012 Lorenzo Villani.
 ;;
 ;; Author: Lorenzo Villani <lorenzo@villani.me>
 ;; URL: https://github.com/lvillani/el-monokai-theme
-;; Version: 0.0.10
+;; Version: 0.0.12
 ;;
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -20,6 +20,12 @@
 
 (unless (>= 24 emacs-major-version)
   (error "monokai-theme requires Emacs 24 or later."))
+
+
+(warn "monokai-theme.el: THIS PROJECT IS BEING DISCONTINUED")
+(warn "monokai-theme.el: Please switch to monokai-theme from MELPA")
+(warn "monokai-theme.el: For more information see: https://github.com/lvillani/el-monokai-theme")
+
 
 (deftheme monokai
   "Monokai color theme")
@@ -66,6 +72,8 @@
    `(ido-first-match ((t (:foreground ,monokai-purple))))
    `(ido-only-match ((t (:foreground ,monokai-green))))
    `(ido-subdir ((t (:foreground ,monokai-blue-light))))
+   ;; ECB
+   `(ecb-default-highlight-face ((t (:foreground ,monokai-green))))
    ;; Whitespace
    `(whitespace-space ((t (:foreground ,monokai-gray))))
    ;; Yasnippet
@@ -76,7 +84,7 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name)))
   (when (not window-system)
-    (custom-set-faces '(default ((t (:background "nil")))))))
+    (custom-set-faces '(default ((t (:background nil)))))))
 
 (provide-theme 'monokai)
 
