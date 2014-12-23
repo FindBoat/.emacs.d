@@ -203,6 +203,24 @@ If ARG is non-numeric, copy line from beginning of the current line."
       ;; no ARG, save current line from first non-white
       (huangq-save-one-line t))))
 
+;;--------------------Indent--------------------
+(defun my-indent-region (N)
+  (interactive "p")
+  (if (use-region-p)
+      (progn (indent-rigidly (region-beginning) (region-end) (* N 1))
+             (setq deactivate-mark nil))
+    (self-insert-command N)))
+
+(defun my-unindent-region (N)
+  (interactive "p")
+  (if (use-region-p)
+      (progn (indent-rigidly (region-beginning) (region-end) (* N -1))
+             (setq deactivate-mark nil))
+    (self-insert-command N)))
+
+(global-set-key ">" 'my-indent-region)
+(global-set-key "<" 'my-unindent-region)
+
 ;;--------------------TEMPLATE--------------------
 (setq load-path (cons (expand-file-name "~/.emacs.d/lisp")
                       load-path))
@@ -309,4 +327,3 @@ If ARG is non-numeric, copy line from beginning of the current line."
 
 
 ;; (require 'google)
-
