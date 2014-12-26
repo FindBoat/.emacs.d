@@ -300,8 +300,9 @@ If ARG is non-numeric, copy line from beginning of the current line."
 
 ;;--------------------SETTINGS FOR Jade & Stylus--------------------
 (require 'sws-mode)
+(require 'stylus-mode)
 (require 'jade-mode)    
-(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
+(add-to-list 'auto-mode-alist '("\\.styl$" . stylus-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
 ;;--------------------SETTINGS FOR Less & CSS--------------------
