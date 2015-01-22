@@ -22,6 +22,11 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elib-1.0"))
 
 
+;;;;;;;;;;;;;;;;;;; Opacity ;;;;;;;;;;;;;;;;;;;;;
+(set-frame-parameter (selected-frame) 'alpha '(90 50))
+(add-to-list 'default-frame-alist '(alpha 90 50))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; For emacs24
 
@@ -30,7 +35,6 @@
                  '("marmalade" .
                          "http://marmalade-repo.org/packages/"))
 (package-initialize)
-
 
 ;;--------------------Projectile--------------------
 (projectile-global-mode)
@@ -84,14 +88,14 @@
 (global-set-key (kbd "C-x l") 'windmove-right)        ; move to right window
 
 ;; Max 80 columns per line.
-(add-hook 'font-lock-mode-hook
-           (function
-            (lambda ()
-              (setq font-lock-keywords
-                    (append font-lock-keywords
-                            '(("\t+" (0 'my-tab-face t))
-                              ("^.\\{81,\\}$" (0 'my-long-line-face t))
-("[ \t]+$"      (0 'my-tratrailing-space-face t))))))))
+;; (add-hook 'font-lock-mode-hook
+;;            (function
+;;             (lambda ()
+;;               (setq font-lock-keywords
+;;                     (append font-lock-keywords
+;;                             '(("\t+" (0 'my-tab-face t))
+;;                               ("^.\\{81,\\}$" (0 'my-long-line-face t))
+;; ("[ \t]+$"      (0 'my-tratrailing-space-face t))))))))
 
 ;; save all backup file in this directory.
 (setq backup-directory-alist (quote ((".*" . "~/.emacs_backups/"))))
@@ -317,14 +321,14 @@ If ARG is non-numeric, copy line from beginning of the current line."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Comment things below if working locally;;;;;;;;;;;;;;;;;;;;;;;
 
-;; (add-to-list 'load-path "~/.emacs.d/google")
+(add-to-list 'load-path "~/.emacs.d/google")
 
-;; (defun my-c-mode-common-hook ()
-;;  (c-set-style "google")
-;;  (setq c-basic-offset 2))
-;; ;;google sytle is defined in above function
-;; (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-;; (add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
+(defun my-c-mode-common-hook ()
+ (c-set-style "google")
+ (setq c-basic-offset 2))
+;;google sytle is defined in above function
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
 
 
-;; (require 'google)
+(require 'google)

@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <14/12/22 15:49:39 /Users/zhaohang/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <15/01/22 10:22:41 /Users/zhaohang/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -46,15 +46,15 @@
    ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
   ("remote-shell" "/bin/sh")
   ("busybox" nil)
-  ("readlink" "\\readlink")
   ("stat" "\\stat")
   ("file-exists" "test -e")
   ("id" "/usr/bin/id")
   ("gid-integer" 5000)
+  ("readlink" "\\readlink")
+  ("ls" "/bin/ls --color=never")
+  ("uid-integer" 165342)
   ("~" "/usr/local/google/home/zhaohang")
   ("perl-file-spec" t)
   ("perl-cwd-realpath" t)
   ("perl" "\\perl")
-  ("ls" "/bin/ls --color=never")
-  ("ls-dired" t)
-  ("uid-integer" 165342)))
+  ("ls-dired" t)))
