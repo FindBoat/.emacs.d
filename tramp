@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <15/04/21 10:58:54 /Users/zhaohang/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <15/07/17 13:38:15 /Users/zhaohang/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -40,7 +40,7 @@
   ("~" "/usr/local/google/home/zhaohang")
   ("ls-dired" t))
  (["ssh" nil "zhaohang.mtv.corp.google.com" nil nil]
-  ("uname" "Linux 3.13.0-46-generic")
+  ("uname" "Linux 3.13.0-55-generic")
   ("test" "test")
   ("remote-path"
    ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
