@@ -7,10 +7,15 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/replace-colorthemes-master")
 (require 'color-theme)
 
+;; (add-to-list 'load-path "~/.emacs.d/color-theme-sanityinc-tomorrow")
+;; (require 'color-theme-sanityinc-tomorrow)
+;; (load-theme `sanityinc-tomorrow-blue t)
 ;;(load-file "~/.emacs.d/monokai-theme.el")
 ;;(load-theme `spolsky t)
+(load-theme `dracula t)
 ;;(load-theme `tomorrow-night-paradise t)
-(load-theme `ujelly t)
+;;(load-theme `ujelly t)
+;;(load-theme `sanityinc-tomorrow-nigh t)
 ;;(load-theme `cyberpunk t)
 ;;(load-theme `wombat t)
 ;;(load-theme `salmon-diff t)
@@ -25,13 +30,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background "#1A1A1A"))))
+ '(default ((t (:inherit nil :stipple nil :background nil :foreground "#cccccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "apple" :family "Atlas_Typewriter"))))
+ '(font-lock-type-face ((t (:weight normal))))
  '(my-tab-face ((((class color)) (:background "green"))) t))
 ;;(custom-set-faces '(default ((t (:background "#212121")))))
 
 
 ;;(custom-set-faces '(default ((t (:background "#1C1F2A")))))
 ;;(custom-set-faces '(default ((t (:background "#272822")))))
+
+(add-to-list 'load-path "~/.emacs.d/nav/")
+(require 'nav)
+(nav-disable-overeager-window-splitting)
+(global-set-key [f8] 'nav-toggle)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -44,6 +55,9 @@
 
 ;; Line spacing
 (setq-default line-spacing 4)
+
+;; Disable italic.
+(set-face-italic-p 'italic nil)
 
 (global-linum-mode t)
 
@@ -96,7 +110,7 @@
 ;;(set-default-font "Monaco-12")
 ;;(set-default-font "inconsolata-12")
 ;;(set-default-font "andale mono-12")
-(set-default-font "Atlas Typewriter-10")
+(set-default-font "Atlas Typewriter-11")
 ;;(set-default-font "Anonymous Pro-11.5:bold")
 ;;(set-default-font "Anonymous Pro-10.5")
 
@@ -110,14 +124,14 @@
 (global-set-key (kbd "C-x l") 'windmove-right)        ; move to right window
 
 ;; Max 80 columns per line.
-;; (add-hook 'font-lock-mode-hook
-;;            (function
-;;             (lambda ()
-;;               (setq font-lock-keywords
-;;                     (append font-lock-keywords
-;;                             '(("\t+" (0 'my-tab-face t))
-;;                               ("^.\\{81,\\}$" (0 'my-long-line-face t))
-;; ("[ \t]+$"      (0 'my-tratrailing-space-face t))))))))
+(add-hook 'font-lock-mode-hook
+           (function
+            (lambda ()
+              (setq font-lock-keywords
+                    (append font-lock-keywords
+                            '(("\t+" (0 'my-tab-face t))
+                              ("^.\\{81,\\}$" (0 'my-long-line-face t))
+("[ \t]+$"      (0 'my-tratrailing-space-face t))))))))
 
 ;; save all backup file in this directory.
 (setq backup-directory-alist (quote ((".*" . "~/.emacs_backups/"))))
@@ -275,9 +289,6 @@ If ARG is non-numeric, copy line from beginning of the current line."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
- '(custom-safe-themes (quote ("02c2ba907f8c1a408d31293531c4c3105545d56210dad5873cb4baf5c7514b05" "4aafea32abe07a9658d20aadcae066e9c7a53f8e3dfbd18d8fa0b26c24f9082c" "c9445e1f0bd72e79e35f3e6f04c22ccf37e3a187a8e5581b84e8ea8116fe0912" "c1af7190a6855a376f7a7563445687064af6d8bdca423136cb013c93fbfd1b00" "6981a905808c6137dc3a3b089b9393406d2cbddde1d9336bb9d372cbc204d592" "af4cfe7f2de40f19e0798d46057aae0bccfbc87a85a2d4100339eaf91a1f202a" "fc89666d6de5e1d75e6fe4210bd20be560a68982da7f352bd19c1033fb7583ba" "86e74c4c42677b593d1fab0a548606e7ef740433529b40232774fbb6bc22c048" "2fc7672758572337a2c9d748d8f53cc7839244642e4409b375baef6152400b4d" "50d8de7ef10b93c4c7251888ff845577004e086c5bfb2c4bb71eca51b474063a" "9a9e75c15d4017c81a2fe7f83af304ff52acfadd7dde3cb57595919ef2e8d736" "0a4879589b651a17e5a1f54d4fecc306fb8631a138d0e5f8585256189fb6740a" "b3775ba758e7d31f3bb849e7c9e48ff60929a792961a2d536edec8f68c671ca5" "3d5ef3d7ed58c9ad321f05360ad8a6b24585b9c49abcee67bdcbb0fe583a6950" "46fd293ff6e2f6b74a5edf1063c32f2a758ec24a5f63d13b07a20255c074d399" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "7bde52fdac7ac54d00f3d4c559f2f7aa899311655e7eb20ec5491f3b5c533fe8" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "3cc2385c39257fed66238921602d8104d8fd6266ad88a006d0a4325336f5ee02" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "3f51d45b0963fbba3372aa512877d519c1bf913e7f1696ec6a498178b3c2c252" "57d7e8b7b7e0a22dc07357f0c30d18b33ffcbb7bcd9013ab2c9f70748cfa4838" "39a854967792547c704cbff8ad4f97429f77dfcf7b3b4d2a62679ecd34b608da" "bb6b64bfb2f63efed8dea1ca03691c07c851a8be6f21675fe4909289d68975d9" "8d1baba3bbafc11628972b5b0a4453b5120be4fb8d30ad0ca4b35d114422dd65" "0ff3aeed353697992d100ddf8a94d065a58ffbde5a40afefa605f211757c8ab0" "8e997c790c6b22c091edb8a866f545857eaae227a0c41df402711f6ebc70326c" "98e5e942303b4f356d6573009c96087f9b872f2fa258c673188d913f6faf17ea" "9a3c51c59edfefd53e5de64c9da248c24b628d4e78cc808611abd15b3e58858f" "0f0adcd1352b15a622afd48fcff8232169aac4b5966841e506f815f81dac44ea" "09feeb867d1ca5c1a33050d857ad6a5d62ad888f4b9136ec42002d6cdf310235" "70b9e0d0b857d6497c6623bb360a3a7f915251c4a6233c30b65f9005eb9f4256" "cc2f32f5ee19cbd7c139fc821ec653804fcab5fcbf140723752156dc23cdb89f" "7a83132ecb08e86c63d3cbf4b677d4cb1bcfcfb47f4942f2b8ecc7f6ebc2004c" "9dc64d345811d74b5cd0dac92e5717e1016573417b23811b2c37bb985da41da2" "f831c1716ebc909abe3c851569a402782b01074e665a4c140e3e52214f7504a0" "6cf0e8d082a890e94e4423fc9e222beefdbacee6210602524b7c84d207a5dfb5" "68769179097d800e415631967544f8b2001dae07972939446e21438b1010748c" "471877df61bcd989ba4c0a5097654684fcfe918e124d46f811b533e44df34f53" default)))
- '(jde-complete-function (quote jde-complete-menu))
- '(jde-sourcepath (quote ("~/Documents/Java/TopCoder")))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil))
 
@@ -293,6 +304,9 @@ If ARG is non-numeric, copy line from beginning of the current line."
 ;;c mode default
 (add-to-list 'load-path
 "~/.emacs.d/")
+
+(require 'powerline)
+(powerline-default-theme)
 
 (require 'google-c-style)
 
@@ -344,14 +358,14 @@ If ARG is non-numeric, copy line from beginning of the current line."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Comment things below if working locally;;;;;;;;;;;;;;;;;;;;;;;
 
-(add-to-list 'load-path "~/.emacs.d/google")
+;; (add-to-list 'load-path "~/.emacs.d/google")
 
-(defun my-c-mode-common-hook ()
- (c-set-style "google")
- (setq c-basic-offset 2))
-;;google sytle is defined in above function
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-(add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
+;; (defun my-c-mode-common-hook ()
+;;  (c-set-style "google")
+;;  (setq c-basic-offset 2))
+;; ;;google sytle is defined in above function
+;; (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+;; (add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
 
 
-(require 'google)
+;; (require 'google)
