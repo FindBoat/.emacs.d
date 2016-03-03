@@ -30,8 +30,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background nil :foreground "#cccccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "apple" :family "Atlas_Typewriter"))))
- '(font-lock-type-face ((t (:weight normal))))
+ '(default ((t (:inherit nil :stipple nil :background "#282a36" :foreground "#f8f8f2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight ultra-light :height 110 :width normal :foundry "apple" :family "Atlas Typewriter" :antialias 1))))
  '(my-tab-face ((((class color)) (:background "green"))) t))
 ;;(custom-set-faces '(default ((t (:background "#212121")))))
 
@@ -43,6 +42,7 @@
 (require 'nav)
 (nav-disable-overeager-window-splitting)
 (global-set-key [f8] 'nav-toggle)
+(add-hook 'psw-after-switch-hook 'nav-jump-to-current-dir)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -59,7 +59,7 @@
 ;; Disable italic.
 (set-face-italic-p 'italic nil)
 
-(global-linum-mode t)
+;;(global-linum-mode t)
 
 ;;;;;;;;;;;;;;;;;;; Opacity ;;;;;;;;;;;;;;;;;;;;;
 ;; (set-frame-parameter (selected-frame) 'alpha '(90 50))
@@ -110,8 +110,8 @@
 ;;(set-default-font "Monaco-12")
 ;;(set-default-font "inconsolata-12")
 ;;(set-default-font "andale mono-12")
-(set-default-font "Atlas Typewriter-11")
-;;(set-default-font "Anonymous Pro-11.5:bold")
+;;(set-default-font "Atlas Typewriter-11 :weight")
+;;(set-default-font "Anonymous Pro-11.5:ultra-light")
 ;;(set-default-font "Anonymous Pro-10.5")
 
 (setq tramp-default-method "ssh")
@@ -124,14 +124,14 @@
 (global-set-key (kbd "C-x l") 'windmove-right)        ; move to right window
 
 ;; Max 80 columns per line.
-(add-hook 'font-lock-mode-hook
-           (function
-            (lambda ()
-              (setq font-lock-keywords
-                    (append font-lock-keywords
-                            '(("\t+" (0 'my-tab-face t))
-                              ("^.\\{81,\\}$" (0 'my-long-line-face t))
-("[ \t]+$"      (0 'my-tratrailing-space-face t))))))))
+;; (add-hook 'font-lock-mode-hook
+;;            (function
+;;             (lambda ()
+;;               (setq font-lock-keywords
+;;                     (append font-lock-keywords
+;;                             '(("\t+" (0 'my-tab-face t))
+;;                               ("^.\\{81,\\}$" (0 'my-long-line-face t))
+;; ("[ \t]+$"      (0 'my-tratrailing-space-face t))))))))
 
 ;; save all backup file in this directory.
 (setq backup-directory-alist (quote ((".*" . "~/.emacs_backups/"))))
@@ -358,14 +358,14 @@ If ARG is non-numeric, copy line from beginning of the current line."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Comment things below if working locally;;;;;;;;;;;;;;;;;;;;;;;
 
-;; (add-to-list 'load-path "~/.emacs.d/google")
+(add-to-list 'load-path "~/.emacs.d/google")
 
-;; (defun my-c-mode-common-hook ()
-;;  (c-set-style "google")
-;;  (setq c-basic-offset 2))
-;; ;;google sytle is defined in above function
-;; (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-;; (add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
+(defun my-c-mode-common-hook ()
+ (c-set-style "google")
+ (setq c-basic-offset 2))
+;;google sytle is defined in above function
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
 
 
-;; (require 'google)
+(require 'google)
