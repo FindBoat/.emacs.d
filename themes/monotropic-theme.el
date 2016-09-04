@@ -1,17 +1,23 @@
 (deftheme monotropic
   "Monotropic -- relating to or exhibiting monotropy. Based on https://github.com/maio/eink-emacs")
 
-(let ((fg "#111111")
-      (bg "#fffffa")
+(let ((fg "#595959")
+      ;;      (bg "#111111")
+      ;;      (bg "#fffffa")
+      (fg-heavy "#000")
+      (bg "#ffffff")
+;;      (bg "#fafafa")
       (bg-light "#ddddda")
-      (fg-light "#ddddda")
+;;      (fg-light "#ddddda")
+      (fg-light "#888")
+;;      (fg-light "#666")
       (bg-highlight "#ddddda")
       (bg-highlight-2 "#e0ffff")
       (bg-highlight-3 "#19dd89"))
 
   (custom-theme-set-faces
    'monotropic
- 
+
    ;; generic stuff
    `(default ((t (:background ,bg :foreground ,fg))))
    `(button ((t (:foreground ,fg :underline t))))
@@ -23,17 +29,22 @@
    `(font-latex-match-reference-keywords ((t (:foreground ,fg))))
    `(font-latex-match-variable-keywords ((t (:foreground ,fg))))
    `(font-latex-string-face ((t (:foreground "#a9a9a9"))))
-   `(font-lock-builtin-face ((t (:background ,bg :foreground ,fg))))
+;;   `(font-lock-builtin-face ((t (:background ,bg :foreground ,fg))))
+   `(font-lock-builtin-face ((t (:background ,bg :foreground ,fg :underline t))))
    `(font-lock-comment-delimiter-face ((t (:foreground "#808080"))))
-   `(font-lock-comment-face ((t (:foreground ,fg :weight bold))))
+;;   `(font-lock-comment-face ((t (:foreground ,fg :weight bold))))
+;;   `(font-lock-comment-face ((t (:foreground ,fg-light  :slant italic))))
+   `(font-lock-comment-face ((t (:foreground ,fg-light))))
    `(font-lock-constant-face ((t (:foreground ,fg))))
    `(font-lock-doc-face ((t (:foreground ,fg :weight semi-bold))))
-   `(font-lock-function-name-face ((t (:foreground ,fg))))
+;;   `(font-lock-function-name-face ((t (:foreground ,fg))))
+   `(font-lock-function-name-face ((t (:foreground ,fg :underline t))))
    `(font-lock-keyword-face ((t (:foreground ,fg))))
    `(font-lock-preprocessor-face ((t (:foreground ,fg))))
    `(font-lock-reference-face ((t (:foreground ,fg))))
    `(font-lock-string-face ((t (:foreground ,fg))))
    `(font-lock-type-face ((t (:foreground ,fg))))
+;;   `(font-lock-type-face ((t (:foreground ,fg :weight semi-bold))))
    `(font-lock-variable-name-face ((t (:foreground ,fg :underline nil))))
    `(font-lock-warning-face ((t (:foreground ,fg :weight bold))))
    `(fringe ((t (:background ,bg :foreground ,bg))))

@@ -1,0 +1,1 @@
+("~/Documents/laserlike/beam/" "~/Documents/winlo/" "~/.emacs.d/")

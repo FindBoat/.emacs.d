@@ -1,10 +1,10 @@
-;; -*- emacs-lisp -*- <16/05/20 20:12:31 /Users/hang/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <16/09/04 14:20:56 /Users/hang/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
 ((["ssh" "hang" "documents" nil nil]
   ("locale" "LC_ALL=en_US.utf8")
-  ("uname" "Linux 4.2.0-27-generic")
+  ("uname" "Linux 4.4.0-22-generic")
   ("test" "test")
   ("remote-path"
    ("/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin"))
@@ -14,11 +14,9 @@
   ("perl-file-spec" t)
   ("perl-cwd-realpath" t)
   ("perl" "\\perl")
+  ("readlink" "\\readlink")
   ("ls" "/bin/ls --color=never")
   ("ls-dired" t)
   ("stat" "\\stat")
   ("id" "/usr/bin/id")
-  ("gid-integer" 1012)
-  ("readlink" "\\readlink")
-  ("gid-string" "hang")
-  ("git" "\\git")))
+  ("gid-integer" 1012)))
